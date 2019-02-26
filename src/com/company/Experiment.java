@@ -1,14 +1,26 @@
 package com.company;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
 
-public class Experiment implements Comparable<Experiment>
+class Experiment implements Comparable<Experiment>
 {
     private Date date;
     private String equipment;
     private Date timeStart;
     private Date timeEnd;
+    private DateFormat dateFormat = new SimpleDateFormat("dd.mm.yyyy");
+    private DateFormat timeFormat = new SimpleDateFormat("hh.mm.ss");
+
+    Experiment(Date date, String equipment, Date timeStart, Date timeEnd)
+    {
+        this.date=date;
+        this.equipment=equipment;
+        this.timeStart=timeStart;
+        this.timeEnd=timeEnd;
+    }
 
     public Date getDate() {
         return date;
@@ -44,7 +56,12 @@ public class Experiment implements Comparable<Experiment>
 
     public  void ConsolePrint()
     {
-        System.out.println(date+" "+equipment+" "+timeStart+" "+timeEnd);
+        System.out.println(dateFormat.format(date)+" "+equipment+" "+timeFormat.format(timeStart)+" "+timeFormat.format(timeEnd));
+    }
+
+    String FileFormat()
+    {
+        return dateFormat.format(date)+";"+equipment+";"+timeFormat.format(timeStart)+";"+timeFormat.format(timeEnd);
     }
 
     @Override

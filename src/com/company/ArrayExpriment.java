@@ -3,9 +3,19 @@ package com.company;
 import java.util.Arrays;
 import java.util.Date;
 
-public class ArrayExpriment
+class ArrayExpriment
 {
-    Experiment[] array;
+    private Experiment[] array;
+    private InputOutput IO = new InputOutput();
+    void ReadFromFile()
+    {
+        array = IO.Read();
+    }
+
+    void WriteToFile()
+    {
+        IO.Write(array);
+    }
 
     Experiment find(Date field)
     {
