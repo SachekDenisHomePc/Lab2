@@ -14,6 +14,11 @@ class Experiment implements Comparable<Experiment>
     private DateFormat dateFormat = new SimpleDateFormat("dd.mm.yyyy");
     private DateFormat timeFormat = new SimpleDateFormat("hh.mm.ss");
 
+    Experiment()
+    {
+
+    }
+
     Experiment(Date date, String equipment, Date timeStart, Date timeEnd)
     {
         this.date=date;
